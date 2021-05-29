@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./screens/Navigation";
+import Dashboard from "./screens/Dashboard";
+import DashBoardCalender from "./screens/DashboardCalender";
+import TopNavigation from "./screens/components/topNav/TopNav";
+import VisitSchedule from "./screens/VisitSchedule";
+// images
+import image from "./screens/components/icons/HomeLogo.svg";
+// redux
+import { store } from "./redux/store/store";
+import { Provider } from "react-redux";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Provider store={store}>
+    <div className="">      
+      <Navbar
+        image={image}
+        alt="Homzhub"
+        avatarAlt="Remy Sharp"
+        avatarSrc="/static/images/avatar/1.jpg"
+      />
+      <TopNavigation />
+      <Dashboard />
+      {/* <DashBoardCalender /> */}
+      {/* <VisitSchedule /> */}
     </div>
+   </Provider>
   );
 }
 
