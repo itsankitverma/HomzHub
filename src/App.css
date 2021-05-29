@@ -120,6 +120,12 @@
 /* card body - dashboard */
 .Dashboard_NameDetails {
   margin-left: 20px;
+ 
+}
+
+.Dashboard_Tenant{
+  position: relative;
+  top: 10px;
 }
 
 .Dashboard_Margin {

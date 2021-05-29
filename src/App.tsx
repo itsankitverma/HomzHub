@@ -17,7 +17,7 @@ function App() {
       <Navbar
         image={image}
         alt="Homzhub"
-        avatarAlt="Remy Sharp"
+        avatarAlt="Brooklyn Simmons"
         avatarSrc="/static/images/avatar/1.jpg"
       />
       <TopNavigation />

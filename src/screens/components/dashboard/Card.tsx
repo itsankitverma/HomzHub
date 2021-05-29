@@ -85,9 +85,9 @@ function CardHome({ src, cancel,alt }: CardDetails) {
                         <label className="Dashboard_NameTitle">
                           <b>{e.name}</b>
                         </label>
-                        <p>
+                        <p style={{ position:"relative", top:"-6px", lineHeight:"2" }}>
                           <b>
-                            Tenant &middot; {e.rating}
+                            <span style={{ position:"relative", top:"-6px" }}>Tenant &middot; {e.rating}</span> 
                             <StarIcon style={{ color: "#FBC02D" }} />
                           </b>
                         </p>
@@ -120,7 +120,7 @@ function CardHome({ src, cancel,alt }: CardDetails) {
                         padding: "5px 21px"
                       }}
                     >
-                      <label>{e.plot}</label>
+                      <b  style={{ fontWeight: 1000 }}><label>{e.plot}</label></b>
                     </label>
                     <div
                       style={{
@@ -161,19 +161,21 @@ function CardHome({ src, cancel,alt }: CardDetails) {
                           top: "-8px"
                         }}
                       >
-                        <InsertInvitationIcon /> Reschedule
+                        <InsertInvitationIcon /> <label style={{ position: "relative", top:"-6px"}}>Reschedule</label>
                       </span>
                     </div>
                     <div
                       style={{
                         display: "flex",
                         justifyContent: "space-around",
-                        alignItems: "center"
+                        alignItems: "center",
+                        fontSize: "16px", 
+                        fontWeight: "bold"
                       }}
                     >
-                      <label style={{ fontSize: "16px", fontWeight: "bold" }}>
+                      <label>
                         {logo}
-                        <b style={{ color: colorStatus, marginLeft: "10px" }}>
+                        <b style={{ color: colorStatus, marginLeft: "10px", marginTop:10 }}>
                           {Status}
                         </b>
                       </label>

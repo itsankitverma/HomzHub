@@ -20,7 +20,7 @@ export const mockDataCompletedOne = () => (
                 justifyContent: "flex-start"
               }}
             >
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <Avatar alt="Brooklyn Simmons" src="/static/images/avatar/1.jpg" />
               <div className="Dashboard_NameDetails">
                 <label 
                  className="Dashboard_NameTitle">

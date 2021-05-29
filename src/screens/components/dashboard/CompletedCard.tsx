@@ -63,9 +63,9 @@ function CardHome({ alt, src }: CompleteMockData) {
                         <label className="Dashboard_NameTitle">
                           <b>{e.name}</b>
                         </label>
-                        <p>
+                        <p style={{ position:"relative", top:"-6px", lineHeight:"2" }}>
                           <b>
-                            Tenant &middot; {e.rating}
+                            <span style={{ position:"relative", top:"-6px" }}>Tenant &middot; {e.rating}</span> 
                             <StarIcon style={{ color: "#FBC02D" }} />
                           </b>
                         </p>
@@ -129,17 +129,17 @@ function CardHome({ alt, src }: CompleteMockData) {
                         lineHeight: 0.5
                       }}
                     >
-                      <label>
+                      <label style={{ position: "relative", left:"-5px"}}>
                         {e.date} {e.Month} &middot; {e.visitTime}
                       </label>
                       <span
-                        style={{
+                       
+                      >
+                       <Button  style={{
                           color: "#0084F8",
                           position: "relative",
                           top: "-8px"
-                        }}
-                      >
-                        <InsertInvitationIcon /> New Visit
+                        }}><InsertInvitationIcon /></Button> <label style={{ position: "relative", top:"-6px"}}>New Visit</label>
                       </span>
                     </div>
                     <div

@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 import Card from "./Card";
 import CompletedCard from "./CompletedCard";
 import { Container } from '@material-ui/core';
+import brooklyn from "../icons/brooklyn.svg"
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -150,19 +151,21 @@ export default function FullWidthTabs() {
       > */}
         <TabPanel value={value} index={0} dir={theme.direction}>
         <Card
-            alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
+            alt="Brooklyn Simmons"
+            src={brooklyn}
             cancel="Cancel"
           />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+        
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-        <CompletedCard alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <CompletedCard alt="Brooklyn Simmons" src={brooklyn} />
         </TabPanel>
       {/* </SwipeableViews> */}
     </div>
     </Container>
   );
 }
+
+

@@ -187,7 +187,7 @@ function DashBoardCalenderView() {
                                   }}
                                 >
                                   <Avatar
-                                    alt="Remy Sharp"
+                                    alt="Brooklyn Simmons"
                                     src="/static/images/avatar/1.jpg"
                                   />
                                   <div className="Dashboard_NameDetails">
@@ -266,7 +266,7 @@ function DashBoardCalenderView() {
               <ModalHeader toggle={toggle}>Profile</ModalHeader>
               <ModalBody>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                  <Avatar alt="Brooklyn Simmons" src="/static/images/avatar/1.jpg" />
                 </div>
                 <p>{details.name}</p>
                 <p>Tenant</p>
