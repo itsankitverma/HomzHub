@@ -90,6 +90,11 @@ bodyStatus:{
 inviteStatus:{
   fontWeight: "bold",
     position: "relative", top: "6px",color:"#33495E"
+},
+childRoot:{
+  position:"relative",
+  top:4,
+  padding: "1px 0px"
 }
 });
 
@@ -105,7 +110,8 @@ export default function ImgMediaCard(props:CardDetails) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>      
+    <Card className={classes.root}>   
+    <div  className={classes.childRoot}>   
         <div className={classes.alignHeader}>
         <div className={classes.avatarHeader}>
             <Avatar alt={props.alt} src={props.src} />
@@ -125,6 +131,7 @@ export default function ImgMediaCard(props:CardDetails) {
             <div className={classes.bodyVisit}>Visit Details</div>
             <div className={classes.bodyDate}>23 Nov &middot; 8 AM - 12 PM &emsp; <span className={classes.reschedule}><InsertInvitationIcon className={classes.inviteIcon}/> Reschedule</span></div>
             <div className={classes.bodyStatus}> <span><HourglassEmptyIcon className={classes.inviteStatus}/> Awaiting Confirmation..</span> &emsp;<Button  variant="outlined" color="secondary">{props.cancel}</Button> </div>
+        </div>
         </div>
     </Card>
   );
