@@ -78,16 +78,17 @@ bodyVisit:{
     marginTop: "16px"
 },
 bodyDate:{
-    fontWeight: "bold",
+    fontWeight: "bolder",
     fontSize: "14px",
     // marginTop: "px", 
 },
 bodyStatus:{
-    fontWeight: "bold",
+    fontWeight: "bolder",
     fontSize: "14px",
     marginTop: "25px", 
 },
 inviteStatus:{
+  fontWeight: "bold",
     position: "relative", top: "6px",color:"#33495E"
 }
 });
@@ -123,7 +124,7 @@ export default function ImgMediaCard(props:CardDetails) {
             <div className={classes.bodyAddress}>4517 Washington Ave. Manchester, Kentucky 39495</div>
             <div className={classes.bodyVisit}>Visit Details</div>
             <div className={classes.bodyDate}>23 Nov &middot; 8 AM - 12 PM &emsp; <span className={classes.reschedule}><InsertInvitationIcon className={classes.inviteIcon}/> Reschedule</span></div>
-            <div className={classes.bodyStatus}> <span><HourglassEmptyIcon className={classes.inviteStatus}/> Awaiting Confirmation..</span> &emsp;&emsp;<Button>{props.cancel}</Button> </div>
+            <div className={classes.bodyStatus}> <span><HourglassEmptyIcon className={classes.inviteStatus}/> Awaiting Confirmation..</span> &emsp;<Button  variant="outlined" color="secondary">{props.cancel}</Button> </div>
         </div>
     </Card>
   );
