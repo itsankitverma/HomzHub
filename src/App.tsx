@@ -15,7 +15,6 @@ function App() {
     <Provider store={store}>
     <div className="">      
       <Dashboard />
-      {/* <Card/> */}
       {/* <Navbar
         image={image}
         alt="Homzhub"
