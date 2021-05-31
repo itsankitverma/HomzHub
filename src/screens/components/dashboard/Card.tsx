@@ -1,197 +1,130 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import "../../../App.css";
-import { Avatar, Button } from "@material-ui/core";
+import Card from "@material-ui/core/Card";
+import Button from "@material-ui/core/Button";
+import { Avatar } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import InsertInvitationIcon from "@material-ui/icons/InsertInvitation";
-import HourglassEmptyIcon from "@material-ui/icons/HourglassEmpty";
-import { Container, Row, Col } from "reactstrap";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import CancelIcon from "@material-ui/icons/Cancel";
-import mockData from "../json/mockData.json";
+import InsertInvitationIcon from '@material-ui/icons/InsertInvitation';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import "../../../App.css"
+
+const useStyles = makeStyles({
+  root: {
+    marginTop:20,
+    maxWidth: 345,
+    width: 311,
+    height: 280,
+   
+  },
+  alignHeader: {
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    textAlign: "center",
+  },
+  avatarHeader: {
+    display: "flex",
+    justifyContent: "flex-start",    
+    alignItems: "center",
+    },
+  nameHeader: {
+    display: "flex",
+    justifyContent: "flex-start",
+    flexDirection: "column",
+    alignItems: "center"
+    },
+    nameAlign:{
+        position: "relative", 
+        left:"10px" 
+    },
+  rightHeader: { 
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    position: "relative", 
+    top: "-4px"
+},
+star:{
+    position: "relative", top: "6px", color: "#FBC02D"
+},
+inviteIcon:{
+    position: "relative", top: "6px", 
+    color: "#2F80ED"
+},
+reschedule:{
+    color: "#2F80ED"
+},
+bodyContent:{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    position: "relative", 
+    top: "15px",
+    left:"20px" 
+},
+bodyPlot:{
+    fontWeight: "bold",
+    fontSize: "14px"
+},
+bodyAddress:{
+    fontSize: "12px",
+    marginTop: "10px",
+    width:"279px",
+    wordBreak:"break-word"
+},
+bodyVisit:{
+    fontSize: "10px",
+    marginTop: "16px"
+},
+bodyDate:{
+    fontWeight: "bold",
+    fontSize: "14px",
+    // marginTop: "px", 
+},
+bodyStatus:{
+    fontWeight: "bold",
+    fontSize: "14px",
+    marginTop: "25px", 
+},
+inviteStatus:{
+    position: "relative", top: "6px",color:"#33495E"
+}
+});
+
 
 export interface CardDetails {
-  alt:string;
-  src?: string;
-  cancel?: string;
-}
+    alt:string;
+    src?: string;
+    cancel?: string;
+  }
 
-function CardHome({ src, cancel,alt }: CardDetails) {
-  const useStyles = makeStyles((theme) => ({
-    parent: {
-      marginTop: 20,
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      alignItems: "center",
-    }
-  }));
 
+export default function ImgMediaCard(props:CardDetails) {
   const classes = useStyles();
 
   return (
-    <Container>
-      <div>
-        <div className={classes.parent}>
-          {mockData.map((e) => {
-            let Status = "";
-            let colorStatus = "";
-            let logo;
-
-            if (e.confirmed === "Awaiting Confirmation") {
-              Status = "AwaitingConfirmation";
-              logo = <HourglassEmptyIcon />;
-              colorStatus = "#33495E";
-            } else if (e.confirmed === "Visit Scheduled") {
-              Status = "Visit Scheduled";
-              colorStatus = "#2CBA67";
-              logo = <CheckCircleIcon style={{ color: "#2CBA67" }} />;
-            } else if (e.confirmed === "Visit Cancelled") {
-              Status = "Visit Cancelled";
-              colorStatus = "#F23C06";
-              logo = <CancelIcon style={{ color: "#F23C06" }} />;
-            }
-
-            return (
-              <Paper
-                elevation={3}
-                className="Dashboard_Card"
-                style={{
-                  marginTop: 40,
-                  marginLeft: 30
-                }}
-              >
-                <div
-                  style={{
-                    marginTop: 10
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around"
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "flex-start"
-                      }}
-                    >
-                      <Avatar alt={alt} src={src} />
-                      <div className="Dashboard_NameDetails">
-                        <label className="Dashboard_NameTitle">
-                          <b>{e.name}</b>
-                        </label>
-                        <p style={{ position:"relative", top:"-6px", lineHeight:"2" }}>
-                          <b>
-                            <span style={{ position:"relative", top:"-6px" }}>Tenant &middot; {e.rating}</span> 
-                            <StarIcon style={{ color: "#FBC02D" }} />
-                          </b>
-                        </p>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-end"
-                        }}
-                      >
-                        <ChevronRightIcon style={{ color: "#0084F8" }} />
-                        <label className="Dashboard_NameTitle">
-                          <p style={{ fontSize: "12px" }}>
-                            <b>{e.lastseen}</b>
-                          </p>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                        display: "flex",
-                        justifyContent: "flex-start",
-                        padding: "5px 21px"
-                      }}
-                    >
-                      <b  style={{ fontWeight: 1000 }}><label>{e.plot}</label></b>
-                    </label>
-                    <div
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                        padding: "5px 21px"
-                      }}
-                    >
-                      <label>{e.place}</label>
-                    </div>
-                    <span
-                      style={{
-                        fontSize: "10px",
-                        fontWeight: "bold",
-                        padding: "8px 22px"
-                      }}
-                    >
-                      Visit Details
-                    </span>
-
-                    <div
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                        display: "flex",
-                        justifyContent: "space-around",
-                        padding: "8px 0",
-                        lineHeight: 0.5
-                      }}
-                    >
-                      <label>
-                        {e.date} {e.Month} &middot; {e.visitTime}
-                      </label>
-                      <span
-                        style={{
-                          color: "#0084F8",
-                          position: "relative",
-                          top: "-8px"
-                        }}
-                      >
-                        <InsertInvitationIcon /> <label style={{ position: "relative", top:"-6px"}}>Reschedule</label>
-                      </span>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-around",
-                        alignItems: "center",
-                        fontSize: "16px", 
-                        fontWeight: "bold"
-                      }}
-                    >
-                      <label>
-                        {logo}
-                        <b style={{ color: colorStatus, marginLeft: "10px", marginTop:10 }}>
-                          {Status}
-                        </b>
-                      </label>
-                      <Button color="secondary">
-                        {cancel}
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Paper>
-            );
-          })}
+    <Card className={classes.root}>      
+        <div className={classes.alignHeader}>
+        <div className={classes.avatarHeader}>
+            <Avatar alt={props.alt} src={props.src} />
+            <div className={classes.nameHeader}>
+                <span className={classes.nameAlign}>{props.alt}</span>
+                <span>Tenant &middot; 5.0 <StarIcon className={classes.star} /></span>
+            </div>
         </div>
-      </div>
-    </Container>
+        <div className={classes.rightHeader}>
+            <Button><ChevronRightIcon className={classes.reschedule}/></Button>
+            <span>3d ago</span>
+        </div>
+        </div>
+        <div className={classes.bodyContent}>
+            <div className={classes.bodyPlot}>2BHK - Godrej Prime</div>
+            <div className={classes.bodyAddress}>4517 Washington Ave. Manchester, Kentucky 39495</div>
+            <div className={classes.bodyVisit}>Visit Details</div>
+            <div className={classes.bodyDate}>23 Nov &middot; 8 AM - 12 PM &emsp; <span className={classes.reschedule}><InsertInvitationIcon className={classes.inviteIcon}/> Reschedule</span></div>
+            <div className={classes.bodyStatus}> <span><HourglassEmptyIcon className={classes.inviteStatus}/> Awaiting Confirmation..</span> &emsp;&emsp;<Button>{props.cancel}</Button> </div>
+        </div>
+    </Card>
   );
 }
-
-export default CardHome;

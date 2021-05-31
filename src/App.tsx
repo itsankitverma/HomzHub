@@ -14,14 +14,15 @@ function App() {
   return (
     <Provider store={store}>
     <div className="">      
-      <Navbar
+      <Dashboard />
+      {/* <Card/> */}
+      {/* <Navbar
         image={image}
         alt="Homzhub"
         avatarAlt="Brooklyn Simmons"
         avatarSrc="/static/images/avatar/1.jpg"
       />
-      <TopNavigation />
-      <Dashboard />
+      <TopNavigation /> */}
       {/* <DashBoardCalender /> */}
       {/* <VisitSchedule /> */}
     </div>

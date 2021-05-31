@@ -6,7 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Card from "./Card";
+import Card from "../dashboard/Card";
 import CompletedCard from "./CompletedCard";
 import { Container } from '@material-ui/core';
 import brooklyn from "../icons/brooklyn.svg"
@@ -54,6 +54,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     justifyContent: "center"
   },
+  cardWrapper:{
+    display: "flex",
+    flexWrap: "wrap",
+    marginTop:"40px",
+    alignItems: "center",
+    justifyContent: "center"
+  }
 }));
 
 export default function FullWidthTabs() {
@@ -150,11 +157,10 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       > */}
         <TabPanel value={value} index={0} dir={theme.direction}>
-        <Card
-            alt="Brooklyn Simmons"
-            src={brooklyn}
-            cancel="Cancel"
-          />
+        <span className={classes.cardWrapper}>
+          <Card alt="Brooklyn Simmons" src={brooklyn} cancel="cancel"/>
+        </span>
+        
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
         
