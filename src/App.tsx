@@ -14,8 +14,7 @@ function App() {
   return (
     <Provider store={store}>
     <div className="">      
-      <Dashboard />
-      {/* <Card/> */}
+      {/* <Dashboard /> */}
       {/* <Navbar
         image={image}
         alt="Homzhub"
@@ -23,7 +22,7 @@ function App() {
         avatarSrc="/static/images/avatar/1.jpg"
       />
       <TopNavigation /> */}
-      {/* <DashBoardCalender /> */}
+      <DashBoardCalender />
       {/* <VisitSchedule /> */}
     </div>
    </Provider>

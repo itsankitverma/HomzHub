@@ -14,33 +14,40 @@ import StarIcon from "@material-ui/icons/Star";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CancelIcon from "@material-ui/icons/Cancel";
 
-function DashBoardCalenderView() {
-  const [value, onChange] = useState(new Date());
-  const [details, setdetails] = useState({
-    name: "",
-    plot: "",
-    place: "",
-    date: "",
-    time: ""
-  });
-
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
       justifyContent: "space-evenly"
+    },
+    paper:{
+      borderBottom: "2px solid black",
+      padding: "20px 0",
+      maxWidth:"475px"
     },
     CalendrView: {
       display: "flex",     
       alignItems: "center",
       justifyContent: "center"
     },
-    timings: {
-      // fontSize: "16px",
-      // marginTop: 20
+    dashboardNameDetails: {
+      marginLeft: "20px"
     },
-    rightCard: {
+    dashboardNameTitle: {
       // fontSize: "16px",
       // marginTop: 20,
+    },
+    flexStart:{
+      display: "flex",
+      justifyContent: "flex-start",
+      position: "relative",
+      left: "40px",
+      flexDirection: "column"
+    },
+    visitFlexStart:{
+      display: "flex",
+      justifyContent: "flex-start",
+      position: "relative",
+      top: "-10px"
     },
     "@media (max-width: 768px)": {
       root: {
@@ -66,6 +73,21 @@ function DashBoardCalenderView() {
     }
   }));
 
+export interface DashBoardCalenderViewProps{
+  name:string;
+  
+}
+
+function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
+  const [value, onChange] = useState(new Date());
+  const [details, setdetails] = useState({
+    name: "",
+    plot: "",
+    place: "",
+    date: "",
+    time: ""
+  })
+
   const classes = useStyles();
 
   const [modal, setModal] = useState(false);
@@ -83,7 +105,7 @@ function DashBoardCalenderView() {
               // onChange={onChange}
                value={value} />
             </div>
-            <h5 className={classes.timings}>Select Timings</h5>
+            <h5 >Select Timings</h5>
             <div
               style={{
                 marginLeft: "20px"
@@ -104,7 +126,7 @@ function DashBoardCalenderView() {
           </div>
           <div style={{ width: "100%", position: "relative", left: "40px" }}>
             {/* mao from here */}
-            <h4 className={classes.rightCard}>
+            <h4 >
               <b>Visits</b>
             </h4>
             {mockDetailsCalendar.length === 0 ? (
@@ -118,20 +140,11 @@ function DashBoardCalenderView() {
                   return (
                     <Paper
                       elevation={3}
-                      style={{
-                        borderBottom: "2px solid black",
-                        padding: "20px 0"
-                      }}
+                      className={classes.paper}
                     >
                       <div>
                         <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "flex-start",
-                            position: "relative",
-                            left: "40px",
-                            flexDirection: "column"
-                          }}
+                         className={classes.flexStart}
                         >
                           <p style={{ fontWeight: "bold" }}>
                             <b>{e.plot}</b>
@@ -141,12 +154,7 @@ function DashBoardCalenderView() {
                           </p>
                           <p>Visit Details</p>
                           <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "flex-start",
-                              position: "relative",
-                              top: "-10px"
-                            }}
+                            className={classes.visitFlexStart}
                           >
                             <p>
                               <b style={{ fontWeight: "bold" }}>
@@ -177,7 +185,8 @@ function DashBoardCalenderView() {
                               <div
                                 style={{
                                   display: "flex",
-                                  justifyContent: "space-around"
+                                  justifyContent: "space-around",
+                                  width:"500px"
                                 }}
                               >
                                 <div
@@ -189,8 +198,9 @@ function DashBoardCalenderView() {
                                   <Avatar
                                     alt="Brooklyn Simmons"
                                     src="/static/images/avatar/1.jpg"
-                                  />
-                                  <div className="Dashboard_NameDetails">
+                                  />                                  
+                                  <div   className={classes.dashboardNameDetails} 
+                                  >
                                     <label
                                       onClick={() => {
                                         toggle();
@@ -201,8 +211,7 @@ function DashBoardCalenderView() {
                                           date: e.date,
                                           time: e.visitTime
                                         });
-                                      }}
-                                      className="Dashboard_NameTitle"
+                                      }}                                    
                                     >
                                       <b>{e.name}</b>
                                     </label>
@@ -227,7 +236,7 @@ function DashBoardCalenderView() {
                                     <ChevronRightIcon
                                       style={{ color: "#0084F8" }}
                                     />
-                                    <label className="Dashboard_NameTitle">
+                                    <label >
                                       <p style={{ fontSize: "12px" }}>
                                         <b>3d ago</b>
                                       </p>
@@ -247,7 +256,8 @@ function DashBoardCalenderView() {
                             position: "relative",
                             left: "40px",
                             flexDirection: "column",
-                            fontWeight: "bold"
+                            fontWeight: "bold",
+                            width:"500px"
                           }}
                         >
                           <b>Missed</b>
@@ -266,14 +276,14 @@ function DashBoardCalenderView() {
               <ModalHeader toggle={toggle}>Profile</ModalHeader>
               <ModalBody>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                  <Avatar alt="Brooklyn Simmons" src="/static/images/avatar/1.jpg" />
+                  <Avatar alt={name} src="/static/images/avatar/1.jpg" />
                 </div>
                 <p>{details.name}</p>
                 <p>Tenant</p>
                 <p>{details.plot}</p>
                 <p>{details.place}</p>
                 <p>
-                  {details.date} Nov {details.time}{" "}
+                  {details.date} Nov {details.time}
                   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                   <InsertInvitationIcon style={{ color: "#0084f8" }} />
                   Reschedule
@@ -299,7 +309,6 @@ function DashBoardCalenderView() {
                 </div>
               </ModalBody>
             </Modal>
-            {/* mao from here */}
           </div>
         </div>
       </Container>

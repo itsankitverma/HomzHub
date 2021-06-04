@@ -1,7 +1,7 @@
 import Tabs from "./Tabs";
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import "../../../styles.css";
+import "../../../App.css";
 
 export interface VisitScheduler {
   title: string;
@@ -27,7 +27,7 @@ const ModalExample = ({
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>
-          <b>{headTitle}</b>
+          <b>{title}</b>
         </ModalHeader>
         <ModalBody>
           <Tabs />

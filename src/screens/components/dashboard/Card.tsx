@@ -78,17 +78,23 @@ bodyVisit:{
     marginTop: "16px"
 },
 bodyDate:{
-    fontWeight: "bold",
+    fontWeight: "bolder",
     fontSize: "14px",
     // marginTop: "px", 
 },
 bodyStatus:{
-    fontWeight: "bold",
+    fontWeight: "bolder",
     fontSize: "14px",
     marginTop: "25px", 
 },
 inviteStatus:{
+  fontWeight: "bold",
     position: "relative", top: "6px",color:"#33495E"
+},
+childRoot:{
+  position:"relative",
+  top:4,
+  padding: "1px 0px"
 }
 });
 
@@ -96,7 +102,16 @@ inviteStatus:{
 export interface CardDetails {
     alt:string;
     src?: string;
+    lastseen?:string;
     cancel?: string;
+    plot?: string;
+    address?: string;
+    date?: number;
+    month?: string;
+    time?: string;
+    Status?: string;
+    rating:number;
+    logo:any;
   }
 
 
@@ -104,26 +119,28 @@ export default function ImgMediaCard(props:CardDetails) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>      
+    <Card className={classes.root}>   
+    <div  className={classes.childRoot}>   
         <div className={classes.alignHeader}>
         <div className={classes.avatarHeader}>
             <Avatar alt={props.alt} src={props.src} />
             <div className={classes.nameHeader}>
                 <span className={classes.nameAlign}>{props.alt}</span>
-                <span>Tenant &middot; 5.0 <StarIcon className={classes.star} /></span>
+                <span>Tenant &middot; {props.rating} <StarIcon className={classes.star} /></span>
             </div>
         </div>
         <div className={classes.rightHeader}>
             <Button><ChevronRightIcon className={classes.reschedule}/></Button>
-            <span>3d ago</span>
+            <span>{props.lastseen}</span>
         </div>
         </div>
         <div className={classes.bodyContent}>
-            <div className={classes.bodyPlot}>2BHK - Godrej Prime</div>
-            <div className={classes.bodyAddress}>4517 Washington Ave. Manchester, Kentucky 39495</div>
+            <div className={classes.bodyPlot}>{props.plot}</div>
+            <div className={classes.bodyAddress}>{props.address}</div>
             <div className={classes.bodyVisit}>Visit Details</div>
-            <div className={classes.bodyDate}>23 Nov &middot; 8 AM - 12 PM &emsp; <span className={classes.reschedule}><InsertInvitationIcon className={classes.inviteIcon}/> Reschedule</span></div>
-            <div className={classes.bodyStatus}> <span><HourglassEmptyIcon className={classes.inviteStatus}/> Awaiting Confirmation..</span> &emsp;&emsp;<Button>{props.cancel}</Button> </div>
+            <div className={classes.bodyDate}>{props.date} {props.month} &middot; {props.time} &emsp; <span className={classes.reschedule}><InsertInvitationIcon className={classes.inviteIcon}/> Reschedule</span></div>
+            <div className={classes.bodyStatus}> <span> <span className={classes.inviteStatus}>{props.logo}</span> {props.Status}</span> &emsp;<Button  variant="outlined" color="secondary">{props.cancel}</Button> </div>
+        </div>
         </div>
     </Card>
   );

@@ -5,7 +5,7 @@
     "rating": 5.0,
     "plot": "2BHK - Godrej Prime",
     "place": "4517 Washington Ave. Manchester, Kentucky 39495",
-    "date": "3",
+    "date": 3,
     "Month": "Nov",
     "visitTime": "8 AM - 12 PM",
     "confirmed": "Awaiting Confirmation"
@@ -16,10 +16,10 @@
     "rating": 5.0,
     "plot": "2BHK - Godrej Prime",
     "place": "4517 Washington Ave. Manchester, Kentucky 39495",
-    "date": "3",
+    "date": 3,
     "Month": "Nov",
     "visitTime": "8 AM - 12 PM",
-    "confirmed": "Awaiting Confirmation"
+    "confirmed": "Visit Scheduled"
   },
   {
     "name": "Brooklyn Simmons",
@@ -27,10 +27,10 @@
     "rating": 5.0,
     "plot": "2BHK - Godrej Prime",
     "place": "4517 Washington Ave. Manchester, Kentucky 39495",
-    "date": "3",
+    "date": 3,
     "Month": "Nov",
     "visitTime": "8 AM - 12 PM",
-    "confirmed": "Awaiting Confirmation"
+    "confirmed": "Visit Cancelled"
   },
   {
     "name": "Brooklyn Simmons",
@@ -38,29 +38,7 @@
     "rating": 5.0,
     "plot": "2BHK - Godrej Prime",
     "place": "4517 Washington Ave. Manchester, Kentucky 39495",
-    "date": "3",
-    "Month": "Nov",
-    "visitTime": "8 AM - 12 PM",
-    "confirmed": "Awaiting Confirmation"
-  },
-  {
-    "name": "Brooklyn Simmons",
-    "lastseen": "3d ago",
-    "rating": 5.0,
-    "plot": "2BHK - Godrej Prime",
-    "place": "4517 Washington Ave. Manchester, Kentucky 39495",
-    "date": "3",
-    "Month": "Nov",
-    "visitTime": "8 AM - 12 PM",
-    "confirmed": "Awaiting Confirmation"
-  },
-  {
-    "name": "Brooklyn Simmons",
-    "lastseen": "3d ago",
-    "rating": 5.0,
-    "plot": "2BHK - Godrej Prime",
-    "place": "4517 Washington Ave. Manchester, Kentucky 39495",
-    "date": "3",
+    "date": 3,
     "Month": "Nov",
     "visitTime": "8 AM - 12 PM",
     "confirmed": "Awaiting Confirmation"

@@ -1,15 +1,18 @@
-import React from 'react';
-// import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import React from "react";
+import { makeStyles, Theme, useTheme } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 import Card from "../dashboard/Card";
 import CompletedCard from "./CompletedCard";
-import { Container } from '@material-ui/core';
-import brooklyn from "../icons/brooklyn.svg"
+import { Container } from "@material-ui/core";
+import brooklyn from "../icons/brooklyn.svg";
+import HourglassEmptyIcon from "@material-ui/icons/HourglassEmpty";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import CancelIcon from "@material-ui/icons/Cancel";
+import mockData from "../json/mockData.json";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -20,6 +23,11 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
+
+
+  
+
+
 
   return (
     <div
@@ -41,7 +49,7 @@ function TabPanel(props: TabPanelProps) {
 function a11yProps(index: any) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
@@ -52,15 +60,36 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
-  cardWrapper:{
+  cardWrapper: {
     display: "flex",
     flexWrap: "wrap",
-    marginTop:"40px",
+    marginTop: "40px",
     alignItems: "center",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
+  contents: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    position: "relative",
+    top: "40px",
+  },
+  labels: {
+    fontSize: "16px",
+    fontWeight: "bold",
+  },
+  siteVisits: { color: "#808D9B", marginLeft: "10px" },
+  week: {
+    color: "#0084F8",
+    marginLeft: "10px",
+  },
+  dates: {
+    position: "relative",
+    top: "60px",
+  },
 }));
 
 export default function FullWidthTabs() {
@@ -76,7 +105,6 @@ export default function FullWidthTabs() {
     setValue(index);
   };
 
-  
   let newDate = new Date().getDate();
   let newMonth = new Date().getMonth();
   let newYear = new Date().getFullYear();
@@ -108,70 +136,121 @@ export default function FullWidthTabs() {
     Month = "Dec";
   }
 
-
-
   return (
     <Container>
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
+      <div className={classes.root}>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            variant="fullWidth"
+            aria-label="full width tabs example"
+          >
+            <Tab label="Item One" {...a11yProps(0)} />
+            <Tab label="Item Two" {...a11yProps(1)} />
+            <Tab label="Item Three" {...a11yProps(2)} />
+          </Tabs>
+        </AppBar>
 
-      <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "100%",
-            position: "relative",
-            top: "40px"
-          }}
-        >
-          <label style={{ fontSize: "16px", fontWeight: "bold" }}>
-            <b style={{ color: "#808D9B", marginLeft: "10px" }}>
-              {"5 Site visits"}
-            </b>
+        <div className={classes.contents}>
+          <label className={classes.labels}>
+            <b className={classes.siteVisits}>{"5 Site visits"}</b>
           </label>
-          <b style={{ color: "#0084F8", marginLeft: "10px" }}>This Week</b>
+          <b className={classes.week}>This Week</b>
         </div>
-        <div style={{ position: "relative", top: "60px" }}>
+        <div className={classes.dates}>
           <p>
             {newDate}, {Month} {newYear}
           </p>
         </div>
 
-      {/* <SwipeableViews */}
-        {/* axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      > */}
         <TabPanel value={value} index={0} dir={theme.direction}>
-        <span className={classes.cardWrapper}>
-          <Card alt="Brooklyn Simmons" src={brooklyn} cancel="cancel"/>
-        </span>
-        
+          <span className={classes.cardWrapper}>
+
+
+          {mockData.map((e) => {
+            let Status = "";
+            let colorStatus = "";
+            let logo;
+          
+            if (e.confirmed === "Awaiting Confirmation") {
+              Status = "AwaitingConfirmation";
+              logo = <HourglassEmptyIcon />;
+              colorStatus = "#33495E";
+            } else if (e.confirmed === "Visit Scheduled") {
+              Status = "Visit Scheduled";
+              colorStatus = "#2CBA67";
+              logo = <CheckCircleIcon style={{ color: "#2CBA67" }} />;
+            } else if (e.confirmed === "Visit Cancelled") {
+              Status = "Visit Cancelled";
+              colorStatus = "#F23C06";
+              logo = <CancelIcon style={{ color: "#F23C06" }} />;
+            }
+            return (
+              <Card 
+              alt={e.name}
+              src={brooklyn} 
+              lastseen={e.lastseen}
+              rating={e.rating}
+              cancel="cancel"
+              plot={e.plot}
+              address={e.plot}
+              date={e.date}
+              month={e.Month}
+              time={e.visitTime}
+              Status={e.confirmed}
+              logo={logo}
+              />
+            )
+          })
+        }
+           
+          </span>
         </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-        
-        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}></TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-        <CompletedCard alt="Brooklyn Simmons" src={brooklyn} />
+        <span className={classes.cardWrapper}>
+        {mockData.map((e) => {
+            let Status = "";
+            let colorStatus = "";
+            let logo;
+          
+            if (e.confirmed === "Awaiting Confirmation") {
+              Status = "AwaitingConfirmation";
+              logo = <HourglassEmptyIcon />;
+              colorStatus = "#33495E";
+            } else if (e.confirmed === "Visit Scheduled") {
+              Status = "Visit Scheduled";
+              colorStatus = "#2CBA67";
+              logo = <CheckCircleIcon style={{ color: "#2CBA67" }} />;
+            } else if (e.confirmed === "Visit Cancelled") {
+              Status = "Visit Cancelled";
+              colorStatus = "#F23C06";
+              logo = <CancelIcon style={{ color: "#F23C06" }} />;
+            }
+            return (
+              <CompletedCard 
+              alt={e.name}
+              src={brooklyn} 
+              lastseen={e.lastseen}
+              rating={e.rating}
+              cancel="cancel"
+              plot={e.plot}
+              address={e.plot}
+              date={e.date}
+              month={e.Month}
+              time={e.visitTime}
+              Status={e.confirmed}
+              logo={logo}
+              />
+            )
+          })
+        }
+        </span>
         </TabPanel>
-      {/* </SwipeableViews> */}
-    </div>
+      </div>
     </Container>
   );
 }
-
-
