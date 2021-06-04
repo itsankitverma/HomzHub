@@ -12,10 +12,103 @@ import classnames from "classnames";
 import Calenders from "./Calender";
 import AddIcon from "@material-ui/icons/Add";
 import TimerIcon from "@material-ui/icons/Timer";
+import { makeStyles } from "@material-ui/core/styles";
 import "../../../App.css"
 import TextArea from "./TextArea";
 
+
+
+const useStyles = makeStyles((theme) => ({
+  rowContainer: {
+    position: "relative",
+    left: "100px",
+    top:"-20px"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200
+  },
+  tabsCenter:{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    position: "relative",
+    alignItems: "center"
+  },
+  formTabOne:{
+    position: "absolute",
+    width: "200px",
+    /* height: 36px; */
+    left: "12px",
+    top: "-6px",
+    background: "#0084f8",
+    borderRadius: "4px",
+    textAlign: "center",
+    color: "#ffffff"
+  },
+  formTabTwo:{
+    position: "absolute",
+    width: "209px",
+    top: "-7px",
+    left: "212px",
+    background: "#ffffff",
+    textAlign: "center",
+    border: "1px solid #0084f8",
+    boxSizing: "border-box",
+    borderRadius: "4px",
+  },
+  bodyCenter:{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    textAlign: "center"
+  },
+  firstTime:{
+    position: "absolute",
+    width: "208px",
+    height: "29px",
+    left: "20px",
+    color: "#ffffff",
+    background: "#0084f8",
+    borderRadius: "4px",
+    textAlign: "center",
+    cursor: "pointer",
+  },
+  secondTime:{
+    position: "absolute",
+    width: "208px",
+    height: "29px",
+    left: "238px",
+    textAlign: "center",
+    background: "#f0f5f9",
+    borderRadius: "4px", 
+    cursor: "pointer"
+  },
+  thirdTime:{
+    position: "absolute",
+    width: "208px",
+    height: "29px",
+    left: "15px",
+    textAlign: "center",
+    background: "#f0f5f9",
+    borderRadius: "4px",
+    cursor: "pointer"
+  },
+  fourthTime:{
+    position: "absolute",
+    width: "208px",
+    height: "29px",
+    left: "238px",
+    textAlign: "center",
+    background: "#f0f5f9",
+    borderRadius: "4px",
+    cursor: "pointer"
+  }
+}));
+
 const Example = () => {
+  const classes = useStyles();
   const [activeTab, setActiveTab] = useState("1");
   const [SelectTime, setSelectTime] = useState("");
   const [AddSlot, setAddSlot] = useState([]);
@@ -30,18 +123,13 @@ const Example = () => {
   };
 
   return (
-    <div className="tabsCenter">
+    <div className={classes.tabsCenter}>
       <Nav tabs className="pt-5">
         <Row
           className="pt-3"
-          style={{
-            position: "relative",
-            left: "100px",
-            top:"-20px"
-          }}
         >
           <Col xs="8">
-            <NavItem className="Form_TabOne">
+            <NavItem className={classes.formTabOne}>
               <NavLink
                 style={{ color: "white" }}
                 className={classnames({ active: activeTab === "2" })}
@@ -54,7 +142,7 @@ const Example = () => {
             </NavItem>
           </Col>
           <Col xs="4">
-            <NavItem className="Form_TabTwo">
+            <NavItem className={classes.formTabTwo}>
               <NavLink
                 style={{ border: "white" }}
                 className={classnames({ active: activeTab === "1" })}
@@ -73,24 +161,13 @@ const Example = () => {
           <Row>
             <Col sm="12">
               <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  textAlign: "center"
-                }}
+              className={classes.bodyCenter}
               >
                 <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center"
-                  }}
+                  style={{ display: "flex", alignItems: "center" }}
                 >
                   <TimerIcon
-                    style={{
-                      position: "relative",
-                      top: "3px"
-                    }}
+                    style={{ position: "relative", top: "3px" }}
                   />
 
                   <h6 className="pt-3 pl-6">
@@ -119,18 +196,14 @@ const Example = () => {
                   <Row>
                     <Col
                       xs="6"
-                      className="FirstTime"
-                      style={{
-                        cursor: "pointer"
-                      }}
+                      className={classes.firstTime}
                       onClick={() => setSelectTime("8 AM - 12 PM")}
                     >
                       8 AM - 12 PM
                     </Col>
                     <Col
-                      className="SecondTime"
-                      xs="6"
-                      style={{ cursor: "pointer" }}
+                    className={classes.secondTime}
+                      xs="6"                     
                       onClick={() => setSelectTime("12 PM - 3 PM")}
                     >
                       12 PM - 3 PM
@@ -138,17 +211,15 @@ const Example = () => {
                   </Row>
                   <Row className="pt-5">
                     <Col
-                      className="ThirdTime"
-                      xs="6"
-                      style={{ cursor: "pointer" }}
+                      className={classes.thirdTime}
+                      xs="6"                     
                       onClick={() => setSelectTime("3 PM - 6 PM")}
                     >
                       3 PM - 6 PM
                     </Col>
                     <Col
-                      className="FourthTime"
+                    className={classes.fourthTime}
                       xs="6"
-                      style={{ cursor: "pointer" }}
                       onClick={() => setSelectTime("6 PM - 8 PM")}
                     >
                       6 PM - 8 PM

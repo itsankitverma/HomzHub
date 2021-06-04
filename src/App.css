@@ -41,87 +41,12 @@
   border-radius: 8px;
 }
 
-.Form_TabOne {
-  position: absolute;
-  width: 216px;
-  /* height: 36px; */
-  left: -60px;
-  top: -36px;
-  background: #0084f8;
-  border-radius: 4px;
-  text-align: center;
-  color: #ffffff;
-}
-
-.Form_TabTwo {
-  position: absolute;
-  width: 216px;
-  height: 36px;
-  left: 150px;
-  top: -39px;
-  background: #ffffff;
-  text-align: center;
-  border: 1px solid #0084f8;
-  box-sizing: border-box;
-  border-radius: 4px;
-}
-
-.FirstTime {
-  position: absolute;
-  width: 208px;
-  height: 29px;
-  left: 20px;
-  color: #ffffff;
-  /* top: 492px; */
-  background: #0084f8;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.SecondTime {
-  position: absolute;
-  width: 208px;
-  height: 29px;
-  left: 264px;
-  /* top: 492px; */
-
-  /* other */
-  text-align: center;
-  background: #f0f5f9;
-  border-radius: 4px;
-}
-
-.ThirdTime {
-  position: absolute;
-  width: 208px;
-  height: 29px;
-  left: 15px;
-  /* top: 537px; */
-  background: #f0f5f9;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.FourthTime {
-  position: absolute;
-  width: 208px;
-  height: 29px;
-  left: 265px;
-  /* top: 537px; */
-  background: #f0f5f9;
-  border-radius: 4px;
-  text-align: center;
-}
-
 .FormTextArea {
   padding: 12px 12px;
 }
 
 /* card body - dashboard */
-.Dashboard_NameDetails {
-  margin-left: 20px;
- 
-}
+
 
 .Dashboard_Tenant{
   position: relative;
@@ -163,11 +88,4 @@
   background: #ffffff;
   border-radius: 4px;
   border: black;
-}
-
-.tabsCenter{
-  display: "flex";
-  flex-direction: column;
-  justify-content: "center";
-  align-items: "center"
 }

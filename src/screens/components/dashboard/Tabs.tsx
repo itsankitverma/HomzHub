@@ -9,6 +9,10 @@ import Card from "../dashboard/Card";
 import CompletedCard from "./CompletedCard";
 import { Container } from "@material-ui/core";
 import brooklyn from "../icons/brooklyn.svg";
+import HourglassEmptyIcon from "@material-ui/icons/HourglassEmpty";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import CancelIcon from "@material-ui/icons/Cancel";
+import mockData from "../json/mockData.json";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -19,6 +23,11 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
+
+
+  
+
+
 
   return (
     <div
@@ -159,12 +168,87 @@ export default function FullWidthTabs() {
 
         <TabPanel value={value} index={0} dir={theme.direction}>
           <span className={classes.cardWrapper}>
-            <Card alt="Brooklyn Simmons" src={brooklyn} cancel="cancel" />
+
+
+          {mockData.map((e) => {
+            let Status = "";
+            let colorStatus = "";
+            let logo;
+          
+            if (e.confirmed === "Awaiting Confirmation") {
+              Status = "AwaitingConfirmation";
+              logo = <HourglassEmptyIcon />;
+              colorStatus = "#33495E";
+            } else if (e.confirmed === "Visit Scheduled") {
+              Status = "Visit Scheduled";
+              colorStatus = "#2CBA67";
+              logo = <CheckCircleIcon style={{ color: "#2CBA67" }} />;
+            } else if (e.confirmed === "Visit Cancelled") {
+              Status = "Visit Cancelled";
+              colorStatus = "#F23C06";
+              logo = <CancelIcon style={{ color: "#F23C06" }} />;
+            }
+            return (
+              <Card 
+              alt={e.name}
+              src={brooklyn} 
+              lastseen={e.lastseen}
+              rating={e.rating}
+              cancel="cancel"
+              plot={e.plot}
+              address={e.plot}
+              date={e.date}
+              month={e.Month}
+              time={e.visitTime}
+              Status={e.confirmed}
+              logo={logo}
+              />
+            )
+          })
+        }
+           
           </span>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}></TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <CompletedCard alt="Brooklyn Simmons" src={brooklyn} />
+        <span className={classes.cardWrapper}>
+        {mockData.map((e) => {
+            let Status = "";
+            let colorStatus = "";
+            let logo;
+          
+            if (e.confirmed === "Awaiting Confirmation") {
+              Status = "AwaitingConfirmation";
+              logo = <HourglassEmptyIcon />;
+              colorStatus = "#33495E";
+            } else if (e.confirmed === "Visit Scheduled") {
+              Status = "Visit Scheduled";
+              colorStatus = "#2CBA67";
+              logo = <CheckCircleIcon style={{ color: "#2CBA67" }} />;
+            } else if (e.confirmed === "Visit Cancelled") {
+              Status = "Visit Cancelled";
+              colorStatus = "#F23C06";
+              logo = <CancelIcon style={{ color: "#F23C06" }} />;
+            }
+            return (
+              <CompletedCard 
+              alt={e.name}
+              src={brooklyn} 
+              lastseen={e.lastseen}
+              rating={e.rating}
+              cancel="cancel"
+              plot={e.plot}
+              address={e.plot}
+              date={e.date}
+              month={e.Month}
+              time={e.visitTime}
+              Status={e.confirmed}
+              logo={logo}
+              />
+            )
+          })
+        }
+        </span>
         </TabPanel>
       </div>
     </Container>
