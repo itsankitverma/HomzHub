@@ -9,7 +9,9 @@ const useStyles = makeStyles({
   root:{
     display: "flex",
     justifyContent: "space-between",
-    padding: "0 30px"
+    padding: "0 30px",
+    backgroundColor:"white", 
+    position: "relative", top: "20px",
   },
   flexStart:{
     display: "flex",

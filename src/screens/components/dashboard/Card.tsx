@@ -46,10 +46,10 @@ const useStyles = makeStyles({
     top: "-4px"
 },
 star:{
-    position: "relative", top: "6px", color: "#FBC02D"
+    position: "relative", top: "0px", color: "#FBC02D"
 },
 inviteIcon:{
-    position: "relative", top: "6px", 
+    position: "relative", top: "0px", 
     color: "#2F80ED"
 },
 reschedule:{
@@ -89,7 +89,7 @@ bodyStatus:{
 },
 inviteStatus:{
   fontWeight: "bold",
-    position: "relative", top: "6px",color:"#33495E"
+    position: "relative", top: "0px",color:"#33495E"
 },
 childRoot:{
   position:"relative",
