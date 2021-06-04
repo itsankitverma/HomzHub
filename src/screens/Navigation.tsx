@@ -35,6 +35,8 @@ const useStyles = makeStyles((theme : any) => ({
   },
   title: {
     // display: "none",
+    position:"relative",
+    left:"20px",
     [theme.breakpoints.up("sm")]: {
       // display: "block"
     }
