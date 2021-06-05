@@ -95,6 +95,10 @@ childRoot:{
   position:"relative",
   top:4,
   padding: "1px 0px"
+},
+subText:{
+  position:"relative",
+  left:-7,
 }
 });
 
@@ -126,7 +130,7 @@ export default function ImgMediaCard(props:CardDetails) {
             <Avatar alt={props.alt} src={props.src} />
             <div className={classes.nameHeader}>
                 <span className={classes.nameAlign}>{props.alt}</span>
-                <span>Tenant &middot; {props.rating} <StarIcon className={classes.star} /></span>
+                <span className={classes.subText}>Tenant &middot; {props.rating} <StarIcon className={classes.star} /></span>
             </div>
         </div>
         <div className={classes.rightHeader}>

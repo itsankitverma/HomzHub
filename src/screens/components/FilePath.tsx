@@ -6,6 +6,8 @@ import Link from '@material-ui/core/Link';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Background from "./icons/background.svg"
 import { Button } from '@material-ui/core';
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import "../../App.css"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,8 +49,8 @@ export default function CustomSeparator() {
         </Breadcrumbs>      
         </div>
   
-        <div style={{ position:"relative", right:"130px", top:"-10px", cursor: "pointer",}}>
-        <Button variant="outlined" style={{ color:"white" }}  >Back</Button>
+        <div style={{ position:"relative", right:"70px", top:"-10px", cursor: "pointer",}}>
+        <Button variant="outlined" style={{ color:"white" }}  ><KeyboardBackspaceIcon/>Back</Button>
         </div>
     </div>
   );
