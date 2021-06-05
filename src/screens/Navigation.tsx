@@ -10,7 +10,6 @@ import { Avatar, fade, IconButton, Paper, makeStyles } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
 
-
 const useStyles = makeStyles((theme : any) => ({
   hamburger: {
     display: "none"
@@ -97,7 +96,7 @@ const useStyles = makeStyles((theme : any) => ({
   end: {
     display: "flex",
     justifyContent: "space-around",
-    width: "40%"
+    width: "30%"
   },
   hum_typo: {
     fontSize: "1rem",
@@ -106,7 +105,8 @@ const useStyles = makeStyles((theme : any) => ({
     borderBottom: "0.5px solid #979393",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    cursor: "pointer"
   },
   "@media (max-width: 852px)": {
     title: {
@@ -179,10 +179,10 @@ export default function PrimarySearchAppBar({
             </IconButton>
           </div>
           <div className={classes.end}>
-            <div style={{ position: "relative", top: "10px" }}>
+            <div style={{ position: "relative", top: "10px",  cursor: "pointer" }}>
               <p>Help & Support</p>
             </div>
-            <div style={{ position: "relative", top: "10px" }}>
+            <div style={{ position: "relative", top: "10px",  cursor: "pointer"  }}>
               <p>Refer & Earn</p>
             </div>
             <div>

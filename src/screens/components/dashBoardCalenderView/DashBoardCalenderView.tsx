@@ -15,9 +15,16 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CancelIcon from "@material-ui/icons/Cancel";
 
   const useStyles = makeStyles((theme) => ({
+    parentRoot:{
+      display: "flex",
+      flexDirection: "column",
+      justifyContent:"center",
+      alignItems:"center"
+    },
     root: {
       display: "flex",
-      justifyContent: "space-evenly"
+      justifyContent: "space-evenly",
+      marginTop:"20px"
     },
     paper:{
       borderBottom: "2px solid black",
@@ -48,6 +55,16 @@ import CancelIcon from "@material-ui/icons/Cancel";
       justifyContent: "flex-start",
       position: "relative",
       top: "-10px"
+    },
+    noVisitsFound:{
+      display:"flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height:"40vh",
+      position: "relative",
+      left: "80px",
+      maxWidth:"475px"
     },
     "@media (max-width: 768px)": {
       root: {
@@ -97,6 +114,7 @@ function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
   return (
     <>
       <Container>
+        <div className={classes.parentRoot}>
         <div className={classes.root}>
           <div>
             <h5>Select Date</h5>
@@ -129,10 +147,12 @@ function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
             <h4 >
               <b>Visits</b>
             </h4>
-            {mockDetailsCalendar.length === 0 ? (
+            {mockDetailsCalendar.length !== 0 ? (
               <>
+              <div className={classes.noVisitsFound} >
                 <InsertInvitationIcon style={{ color: "#0084f8" }} />
-                <p>No Visits Found</p>
+                <p style={{ position:"relative", top:"20px" }}>No Visits Found</p>
+              </div>
               </>
             ) : (
               <>
@@ -310,6 +330,7 @@ function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
               </ModalBody>
             </Modal>
           </div>
+        </div>
         </div>
       </Container>
     </>
