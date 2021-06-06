@@ -27,8 +27,18 @@ export default function MultilineTextFields() {
     root: {
       "& .MuiTextField-root": {
         margin: theme.spacing(1)
+      },
+      label:{},
+    },
+    flag:{},
+      "@media (max-width: 768px)": {
+        flag:{
+          width:"50px"
+        },
+        label:{
+          width:"50px"
+        },
       }
-    }
   }));
   const classes = useStyles();
 
@@ -42,12 +52,13 @@ export default function MultilineTextFields() {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <div>
+      <div  >
         <TextField
           select
           value={countryFlag}
           onChange={handleChange}
           variant="outlined"
+          className={classes.flag}
         >
           {Flags.map((option) => (
             <MenuItem
@@ -65,6 +76,7 @@ export default function MultilineTextFields() {
           variant="outlined"
           value={Query}
           onChange={handlePropertties}
+          className={classes.flag}
           style={{ width: "180px" }}
         >
           {Queries.map((option) => (

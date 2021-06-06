@@ -22,6 +22,16 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center"
+  },
+  noVisits:{},
+  Visits:{},
+  "@media (max-width: 768px)": {
+    Visits:{
+      fontSize:"10px"
+    },
+    noVisits:{
+      fontSize:"22px"
+    },
   }
 });
 
@@ -38,10 +48,10 @@ const TopNav = () => {
 
             <div style={{ marginLeft: 10, marginTop: 15 }}>
               <h1>
-                <b>30</b>
+                <b className={classes.noVisits}>30</b>
               </h1>
               <p>
-                <b>Total Visits</b>
+                <b className={classes.Visits}>Total Visits</b>
               </p>
             </div>
           </div>

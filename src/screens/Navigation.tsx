@@ -113,10 +113,6 @@ const useStyles = makeStyles((theme : any) => ({
       display: "flex",
       fontSize: 10
     },
-
-    search: {
-      display: "none"
-    },
     hum_div: {
       display: "block"
     },
@@ -124,8 +120,9 @@ const useStyles = makeStyles((theme : any) => ({
       display: "none"
     },
     hamburger: {
-      display: "none"
-    }
+      display: "block"
+    },
+   
   }
 }));
 

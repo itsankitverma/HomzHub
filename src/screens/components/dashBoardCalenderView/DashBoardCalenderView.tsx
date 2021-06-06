@@ -92,10 +92,10 @@ import CancelIcon from "@material-ui/icons/Cancel";
 
 export interface DashBoardCalenderViewProps{
   name:string;
-  
+  src:string;
 }
 
-function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
+function DashBoardCalenderView({name, src}:DashBoardCalenderViewProps) {
   const [value, onChange] = useState(new Date());
   const [details, setdetails] = useState({
     name: "",
@@ -147,7 +147,7 @@ function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
             <h4 >
               <b>Visits</b>
             </h4>
-            {mockDetailsCalendar.length !== 0 ? (
+            {mockDetailsCalendar.length === 0 ? (
               <>
               <div className={classes.noVisitsFound} >
                 <InsertInvitationIcon style={{ color: "#0084f8" }} />
@@ -198,7 +198,7 @@ function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
                           </p>
                         </div>
 
-                        {/*  catd starts */}
+                        {/*  card starts */}
                         {mockData.map((e) => {
                           return (
                             <>
@@ -216,8 +216,8 @@ function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
                                   }}
                                 >
                                   <Avatar
-                                    alt="Brooklyn Simmons"
-                                    src="/static/images/avatar/1.jpg"
+                                    alt={name}
+                                    src={src}
                                   />                                  
                                   <div   className={classes.dashboardNameDetails} 
                                   >
@@ -296,7 +296,10 @@ function DashBoardCalenderView({name}:DashBoardCalenderViewProps) {
               <ModalHeader toggle={toggle}>Profile</ModalHeader>
               <ModalBody>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                  <Avatar alt={name} src="/static/images/avatar/1.jpg" />
+                  <Avatar
+                  alt={name}
+                  src={src}
+                  /> 
                 </div>
                 <p>{details.name}</p>
                 <p>Tenant</p>

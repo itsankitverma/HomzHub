@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       display:"flex",
       justifyContent:"space-between",
-      background: `url(#2F80ED)`
+      background: `url(#17abf0)`
     },
   }),
 );
