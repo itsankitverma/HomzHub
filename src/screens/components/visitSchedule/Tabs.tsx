@@ -16,8 +16,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import "../../../App.css"
 import TextArea from "./TextArea";
 
-
-
 const useStyles = makeStyles((theme) => ({
   rowContainer: {
     position: "relative",
@@ -107,7 +105,17 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Example = () => {
+export interface TabProps{
+  inPerson:string;
+  virtual: string;
+  nextVisit:string;
+  selectDate:string;
+  SelectTimings:string;
+  message: string;
+  optional: string;
+}
+
+const Example = (props: TabProps) => {
   const classes = useStyles();
   const [activeTab, setActiveTab] = useState("1");
   const [SelectTime, setSelectTime] = useState("");
@@ -137,7 +145,7 @@ const Example = () => {
                   toggle("1");
                 }}
               >
-                IN PERSON
+                {props.inPerson}
               </NavLink>
             </NavItem>
           </Col>
@@ -150,7 +158,7 @@ const Example = () => {
                   toggle("2");
                 }}
               >
-                VIRTUAL
+               {props.virtual}
               </NavLink>
             </NavItem>
           </Col>
@@ -172,7 +180,7 @@ const Example = () => {
 
                   <h6 className="pt-3 pl-6">
                     &nbsp;&nbsp;
-                    <b>Join next visit at 4PM, Today</b>
+                    <b> {props.nextVisit}</b>
                   </h6>
                 </div>
 
@@ -180,7 +188,7 @@ const Example = () => {
               </div>
               <div className="pt-3">
                 <h6 className="pt-3">
-                  <b>Select Date</b>
+                  <b> {props.selectDate}</b>
                 </h6>
                 <div className="pt-3">
                   <Calenders />
@@ -188,7 +196,7 @@ const Example = () => {
               </div>
               <div className="pt-3">
                 <h6 className="pt-3">
-                  <b>Select Timings</b>
+                  <b> {props.SelectTimings}</b>
                 </h6>
               </div>
               <div className="pt-3">
@@ -233,10 +241,10 @@ const Example = () => {
                   style={{ cursor: "pointer" }}
                   onClick={() => setSelectTime("8 AM - 12 PM")}
                 >
-                  <b>Message</b>
+                  <b>{props.message}</b>
                 </p>
                 <p className="pt-5">
-                  <i>Optional</i>
+                  <i>{props.optional}</i>
                 </p>
               </div>
               <div>

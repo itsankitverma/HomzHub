@@ -18,7 +18,7 @@ import './App.css'
 function App() {
   return (
     <Provider store={store}>
-    <div style={{ background: `#32127a`, 
+    <div style={{ background: `rgb(23 148 240)`, 
                   maxHeight:"220px"
                   }}>  
       <Navbar

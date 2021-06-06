@@ -30,7 +30,15 @@ const ModalExample = ({
           <b>{title}</b>
         </ModalHeader>
         <ModalBody>
-          <Tabs />
+          <Tabs 
+            inPerson="IN PERSON" 
+            virtual="VIRTUAL" 
+            nextVisit="Join next visit at 4PM, Today" 
+            selectDate="Select Date" 
+            SelectTimings="Select Timings"
+            message="Message"
+            optional="Optional"
+            />
         </ModalBody>
         <ModalFooter>
           <Button outline color="primary" onClick={toggle}>
